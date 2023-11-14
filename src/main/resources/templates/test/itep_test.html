@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/itep_module.css}">
+</head>
+<body>
+  <form th:action="@{/itep/test{}}" method="post" th:object="${preguntas}">
+    <div th:each="pregunta : ${preguntas}">
+      <h4 th:text="${pregunta.texto}"></h4>
+      <div th:each="respuesta : ${pregunta.respuestas}">
+        <input th:name="'selector' + ${pregunta.idPreguntas}" type="radio" th:value="${respuesta.idRespuestas}">
+        <label th:text="${respuesta.texto}"></label>
+      </div>
+    </div>
+    <div>
+      <div>
+        <input class="btn btn-primary" type="submit" value="Finalizar">
+      </div>
+    </div>
+  </form>
+  <!--       -->
+</body>
+</html>
