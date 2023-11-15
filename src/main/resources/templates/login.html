@@ -7,6 +7,9 @@
     <title th:text="'Login'"></title>
 </head>
 <body>
+
+    <header th:replace="component/layout :: header_fragment"></header>
+
     <section class="forms-section">
         <h1 class="section-title">ENGLISH TEST</h1>
         <div class="forms">
@@ -25,6 +28,9 @@
                         <div class="input-block">
                             <label for="login-password">Password</label>
                             <input th:field="*{contraseña}" id="login-password" type="password" required>
+                        </div>
+                        <div class="input-block">
+                            <label th:if="${error_login != null}" th:text="${error_login}"></label>
                         </div>
                     </fieldset>
                     <button type="submit" class="btn-login">Login</button>
