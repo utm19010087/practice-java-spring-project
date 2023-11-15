@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <header th:fragment="header_fragment">
+    <div th:if="${success != null}" th:text="${success}"></div>
+    <div th:if="${error != null}" th:text="${error}"></div>
+    <div th:if="${warning != null}" th:text="${warning}"></div>
+    <div th:if="${info != null}" th:text="${info}"></div>
+  </header>
+</body>
+</html>
