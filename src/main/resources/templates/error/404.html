@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ha ocurrido un error</title>
+</head>
+<body>
+    <h3>Oops! ha ocurrido un error 404</h3>
+    <div th:text="${error}">
+        <div th:text="${message}"></div>
+        <div th:text="${status}"></div>
+        <div th:text="${trace}"></div>  <!--Solo para desarrollo-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h4 th:text="'Bienvenido ' + ${usuario.matricula}"></h4>
+        <div th:each="resultado : ${resultados}">
+            <h4 th:text="${resultado.pregunta.texto}"></h4>
+            <div th:each="resp2 : ${resultado.pregunta.respuestas}">
+                <h5 th:if="${resp2.isCorrect}" style="color: green" th:text="${resp2.texto}"></h5>
+                <h5 th:if="${not resp2.isCorrect}" th:text="${resp2.texto}"></h5>
+            </div>
+            <h4>Tu respuesta</h4>
+            <div th:each="resp : ${resultado.respuesta}">
+                <h5 th:if="${resp.isCorrect}" style="color: green" th:text="${resp.texto}"></h5>
+                <h5 th:if="${not resp.isCorrect}" style="color: red" th:text="${resp.texto}"></h5>
+            </div>
+        </div>
+
+        <a th:href="@{/usuario/logout}">Cerrar sesion</a>
+    </div>
+</body>
+</html>
