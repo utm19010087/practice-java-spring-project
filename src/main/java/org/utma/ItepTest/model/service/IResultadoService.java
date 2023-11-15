@@ -5,5 +5,5 @@ import org.utma.ItepTest.model.service.dto.RespuestaDto;
 
 public interface IResultadoService extends IService<Resultado>
 {
-    public void saveRespuestaWithUsuarioWithPreguntaWithRespuesta(RespuestaDto respuestaDto);
+    public void saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(RespuestaDto respuestaDto);
 }

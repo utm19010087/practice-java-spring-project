@@ -61,10 +61,11 @@ public class ResultadoServiceImpl implements IResultadoService
     }
 
     @Override
-    public void saveRespuestaWithUsuarioWithPreguntaWithRespuesta(RespuestaDto respuestaDto)
+    public void saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(RespuestaDto respuestaDto)
     {
         Respuesta[] respuestas = respuestaDto.getSelector();
         int[] preguntaIds = respuestaDto.getPreguntaIndex();
+        Long usuarioId = respuestaDto.getUsuarioId();
 
         for (int i=0; i<respuestas.length; i++)
         {
@@ -72,7 +73,7 @@ public class ResultadoServiceImpl implements IResultadoService
             if (respuesta != null && preguntaIds[i] > 0)
             {
                 Resultado resultado = new Resultado();
-                resultado.setUsuario(usuarioService.findById(1L));
+                resultado.setUsuario(usuarioService.findById(usuarioId));
                 resultado.setPregunta(preguntaService.findById((long) preguntaIds[i]));
                 resultado.setRespuesta(respuesta);
                 resultado.setCreateAt(new Date());

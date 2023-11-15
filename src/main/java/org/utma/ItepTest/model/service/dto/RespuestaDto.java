@@ -7,6 +7,8 @@ public class RespuestaDto
     private Respuesta[] selector;
     private int[] preguntaIndex;
 
+    private Long usuarioId;
+
     public Respuesta[] getSelector() {
         return selector;
     }
@@ -21,5 +23,13 @@ public class RespuestaDto
 
     public void setPreguntaIndex(int[] preguntaIndex) {
         this.preguntaIndex = preguntaIndex;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }

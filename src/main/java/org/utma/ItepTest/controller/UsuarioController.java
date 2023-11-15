@@ -34,7 +34,7 @@ public class UsuarioController
     {
         if (usuarioService.loginWithMatriculaWithPassword(matricula,password))
         {
-            return "redirect:/itep/test";  //Agregar ID para manejar usuario en itep
+            return "redirect:/itep/test/" + usuarioService.findByMatricula(matricula).getIdUsuarios();
         }
         return "login";
     }
@@ -49,6 +49,6 @@ public class UsuarioController
         usuario.setCreateAt(new Date());
         usuarioService.save(usuario);
         status.setComplete();
-        return "redirect:/itep/test";
+        return "redirect:/usuario/login";
     }
 }
