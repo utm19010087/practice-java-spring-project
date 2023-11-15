@@ -23,11 +23,11 @@ public class ItepController
     @Autowired
     private IUsuarioService usuarioService;
 
-    @GetMapping("/test/{id}")
-    public String test(@PathVariable("id") Long id, Model model, HttpSession session)
+    @GetMapping("/test")
+    public String test(Model model, HttpSession session)
     {
         Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null || !usuarioId.equals(id))
+        if (usuarioId == null)
         {
             return "redirect:/usuario/login";
         }
@@ -48,14 +48,19 @@ public class ItepController
         respuestaDto.setUsuarioId(usuarioId);
         resultadoService.deleteResultadoByUsuarioId(usuarioId);
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
-        return "redirect:/itep/resultados/" + respuestaDto.getUsuarioId();
+        return "redirect:/itep/resultados";
     }
 
-    @GetMapping("/resultados/{id}")
-    public String resultados(@PathVariable("id") Long id ,Model model)
+    @GetMapping("/resultados")
+    public String resultados(HttpSession session,Model model)
     {
-        model.addAttribute("usuario", usuarioService.findById(id));
-        model.addAttribute("resultados",resultadoService.findResultadoByUsuarioId(id));
+        Long usuarioId = (Long) session.getAttribute("usuarioId");
+        if (usuarioId == null)
+        {
+            return "redirect:/usuario/login";
+        }
+        model.addAttribute("usuario", usuarioService.findById(usuarioId));
+        model.addAttribute("resultados",resultadoService.findResultadoByUsuarioId(usuarioId));
         return "test/results";
     }
 }

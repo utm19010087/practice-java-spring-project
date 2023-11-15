@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.utma.ItepTest.controller.editor.UsuarioEmailPropertyEditor;
+import org.utma.ItepTest.controller.editor.UsuarioMatriculaPropertyEditor;
 import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.service.IUsuarioService;
 
@@ -20,6 +23,17 @@ public class UsuarioController
 {
     @Autowired
     private IUsuarioService usuarioService;
+    @Autowired
+    private UsuarioMatriculaPropertyEditor usuarioMatriculaPropertyEditor;
+    @Autowired
+    private UsuarioEmailPropertyEditor usuarioEmailPropertyEditor;
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder)
+    {
+        binder.registerCustomEditor(String.class,"matricula", usuarioMatriculaPropertyEditor);
+        binder.registerCustomEditor(String.class,"email",usuarioEmailPropertyEditor);
+    }
 
     @GetMapping("/login")
     public String login(Model model)
@@ -37,9 +51,16 @@ public class UsuarioController
             Usuario usuario = usuarioService.findByMatricula(usuarioParam.getMatricula());
             model.addAttribute("usuario", usuario);
             session.setAttribute("usuarioId", usuario.getIdUsuarios());
-            return "redirect:/itep/test/" + usuario.getIdUsuarios();
+            return "redirect:/itep/test";
         }
         return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session)
+    {
+        session.invalidate();
+        return "redirect:/usuario/login";
     }
 
     @PostMapping("/registro")
