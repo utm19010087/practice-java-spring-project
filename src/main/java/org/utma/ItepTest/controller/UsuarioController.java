@@ -1,5 +1,6 @@
 package org.utma.ItepTest.controller;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,11 +31,14 @@ public class UsuarioController
     @PostMapping("/login")
     public String loginPost(
             @RequestParam("matricula") String matricula,
-            @RequestParam("password") String password, Model model)
+            @RequestParam("password") String password, Model model, HttpSession session)
     {
         if (usuarioService.loginWithMatriculaWithPassword(matricula,password))
         {
-            return "redirect:/itep/test/" + usuarioService.findByMatricula(matricula).getIdUsuarios();
+            Usuario usuario = usuarioService.findByMatricula(matricula);
+            model.addAttribute("usuario", usuario);
+            session.setAttribute("usuarioId", usuario.getIdUsuarios());
+            return "redirect:/itep/test/" + usuario.getIdUsuarios();
         }
         return "login";
     }

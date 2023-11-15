@@ -49,11 +49,11 @@ public class Respuesta implements Serializable {
         this.texto = texto;
     }
 
-    public Boolean getCorrect() {
+    public Boolean getIsCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(Boolean correct) {
+    public void setIsCorrect(Boolean correct) {
         isCorrect = correct;
     }
 

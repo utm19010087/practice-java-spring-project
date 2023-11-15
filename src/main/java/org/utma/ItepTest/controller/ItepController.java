@@ -1,5 +1,6 @@
 package org.utma.ItepTest.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,16 +24,28 @@ public class ItepController
     private IUsuarioService usuarioService;
 
     @GetMapping("/test/{id}")
-    public String test(@PathVariable("id") Long id, Model model)
+    public String test(@PathVariable("id") Long id, Model model, HttpSession session)
     {
-        model.addAttribute("usuarioId",usuarioService.findById(id).getIdUsuarios());
+        Long usuarioId = (Long) session.getAttribute("usuarioId");
+        if (usuarioId == null || !usuarioId.equals(id))
+        {
+            return "redirect:/usuario/login";
+        }
+
+        model.addAttribute("usuarioId",usuarioId);
         model.addAttribute("preguntas",preguntaService.findAll());
         return "test/itep_test";
     }
 
     @PostMapping("/test")
-    public String testPost(@ModelAttribute RespuestaDto respuestaDto, Model model)
+    public String testPost(@ModelAttribute RespuestaDto respuestaDto, Model model, HttpSession session)
     {
+        Long usuarioId = (Long) session.getAttribute("usuarioId");
+        if (usuarioId == null)
+        {
+            return "redirect:/usuario/login";
+        }
+        respuestaDto.setUsuarioId(usuarioId);
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
         return "redirect:/itep/resultados/" + respuestaDto.getUsuarioId();
     }
@@ -40,6 +53,7 @@ public class ItepController
     @GetMapping("/resultados/{id}")
     public String resultados(@PathVariable("id") Long id ,Model model)
     {
+        model.addAttribute("usuario", usuarioService.findById(id));
         model.addAttribute("resultados",resultadoService.findResultadoByUsuarioId(id));
         return "test/results";
     }
