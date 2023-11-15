@@ -29,13 +29,12 @@ public class UsuarioController
     }
 
     @PostMapping("/login")
-    public String loginPost(
-            @RequestParam("matricula") String matricula,
-            @RequestParam("password") String password, Model model, HttpSession session)
+    public String loginPost(Usuario usuarioParam, Model model, HttpSession session)
     {
-        if (usuarioService.loginWithMatriculaWithPassword(matricula,password))
+
+        if (usuarioService.loginWithMatriculaWithPassword(usuarioParam.getMatricula(),usuarioParam.getContraseña()))
         {
-            Usuario usuario = usuarioService.findByMatricula(matricula);
+            Usuario usuario = usuarioService.findByMatricula(usuarioParam.getMatricula());
             model.addAttribute("usuario", usuario);
             session.setAttribute("usuarioId", usuario.getIdUsuarios());
             return "redirect:/itep/test/" + usuario.getIdUsuarios();

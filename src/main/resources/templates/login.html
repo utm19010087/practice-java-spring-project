@@ -15,16 +15,16 @@
                     Login
                     <span class="underline"></span>
                 </button>
-                <form class="form form-login" th:action="@{/usuario/login}" method="post">
+                <form class="form form-login" th:action="@{/usuario/login}" method="post" th:object="${usuario}">
                     <fieldset>
                         <legend>Please, enter your matricula and password for login.</legend>
                         <div class="input-block">
                             <label for="login-matricula">Matricula</label>
-                            <input name="matricula" id="login-matricula" type="text" required>
+                            <input th:field="*{matricula}" id="login-matricula" type="text" required>
                         </div>
                         <div class="input-block">
                             <label for="login-password">Password</label>
-                            <input name="password" id="login-password" type="password" required>
+                            <input th:field="*{contraseña}" id="login-password" type="password" required>
                         </div>
                     </fieldset>
                     <button type="submit" class="btn-login">Login</button>

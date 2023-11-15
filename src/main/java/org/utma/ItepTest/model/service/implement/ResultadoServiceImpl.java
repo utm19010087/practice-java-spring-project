@@ -88,4 +88,10 @@ public class ResultadoServiceImpl implements IResultadoService
     public List<Resultado> findResultadoByUsuarioId(Long id) {
         return resultadoDao.findResultadoByUsuarioId(id);
     }
+
+    @Override
+    @Transactional
+    public void deleteResultadoByUsuarioId(Long id) {
+        resultadoDao.deleteResultadoByUsuarioId(id);
+    }
 }

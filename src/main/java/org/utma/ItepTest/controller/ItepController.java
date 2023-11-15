@@ -46,6 +46,7 @@ public class ItepController
             return "redirect:/usuario/login";
         }
         respuestaDto.setUsuarioId(usuarioId);
+        resultadoService.deleteResultadoByUsuarioId(usuarioId);
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
         return "redirect:/itep/resultados/" + respuestaDto.getUsuarioId();
     }
