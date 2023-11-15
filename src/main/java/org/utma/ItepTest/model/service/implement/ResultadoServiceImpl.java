@@ -61,6 +61,7 @@ public class ResultadoServiceImpl implements IResultadoService
     }
 
     @Override
+    @Transactional
     public void saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(RespuestaDto respuestaDto)
     {
         Respuesta[] respuestas = respuestaDto.getSelector();
@@ -80,5 +81,11 @@ public class ResultadoServiceImpl implements IResultadoService
                 save(resultado);
             }
         }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Resultado> findResultadoByUsuarioId(Long id) {
+        return resultadoDao.findResultadoByUsuarioId(id);
     }
 }

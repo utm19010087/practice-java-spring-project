@@ -34,6 +34,13 @@ public class ItepController
     public String testPost(@ModelAttribute RespuestaDto respuestaDto, Model model)
     {
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
-        return "redirect:/itep/test/" + respuestaDto.getUsuarioId();
+        return "redirect:/itep/resultados/" + respuestaDto.getUsuarioId();
+    }
+
+    @GetMapping("/resultados/{id}")
+    public String resultados(@PathVariable("id") Long id ,Model model)
+    {
+        model.addAttribute("resultados",resultadoService.findResultadoByUsuarioId(id));
+        return "test/results";
     }
 }
