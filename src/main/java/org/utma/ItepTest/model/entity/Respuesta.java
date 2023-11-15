@@ -9,6 +9,19 @@ import java.util.List;
 @Table(name = "respuestas")
 public class Respuesta implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_respuestas")
+    private Long idRespuestas;
+
+    private String texto;
+
+    @Column(name = "is_correct")
+    private Boolean isCorrect;
+
+    @Column(name = "fk_id_preguntas")
+    private int fkIdPreguntas;
+
     @ManyToMany(mappedBy = "respuestas")
     public List<Usuario> usuarios;
 
@@ -20,28 +33,6 @@ public class Respuesta implements Serializable {
         this.usuarios = usuarios;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_respuestas")
-    private Long idRespuestas;
-    private String texto;
-    @Column(name = "is_correct")
-    private Boolean isCorrect;
-    @Column(name = "fk_id_preguntas")
-    private int fkIdPreguntas;
-
-    /*
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Pregunta pregunta;
-
-    public Pregunta getPregunta() {
-        return pregunta;
-    }
-
-    public void setPregunta(Pregunta pregunta) {
-        this.pregunta = pregunta;
-    }
-    */
     public Long getIdRespuestas() {
         return idRespuestas;
     }

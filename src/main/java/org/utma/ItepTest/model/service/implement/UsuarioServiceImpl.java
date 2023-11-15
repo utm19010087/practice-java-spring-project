@@ -14,6 +14,7 @@ public class UsuarioServiceImpl implements IUsuarioService
 {
     @Autowired
     private IUsuarioDao usuarioDao;
+
     @Override
     @Transactional
     public void save(Usuario usuario) {
@@ -39,5 +40,25 @@ public class UsuarioServiceImpl implements IUsuarioService
     @Transactional(readOnly = true)
     public List<Usuario> findAll() {
         return List.copyOf(usuarioDao.findAll());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario findByMatricula(String matricula) {
+        return usuarioDao.findUsuarioByMatricula(matricula);
+    }
+
+    @Override
+    public boolean loginWithMatriculaWithPassword(String matricula, String password) {
+        Usuario usuario;
+        if (!matricula.isEmpty())
+        {
+            usuario = findByMatricula(matricula);
+            if (usuario!=null && usuario.getContraseña().equals(password))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

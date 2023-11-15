@@ -10,6 +10,23 @@ import java.util.List;
 @Table(name = "usuarios")
 public class Usuario implements Serializable
 {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuarios")
+    private Long idUsuarios;
+
+    private String nombre;
+
+    private String email;
+
+    private String matricula;
+
+    private String contraseña;
+
+    @Column(name = "create_at")
+    private Date createAt;
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "usuarios_respuestas", joinColumns = @JoinColumn(name = "respuesta_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
     private List<Respuesta> respuestas;
@@ -33,18 +50,6 @@ public class Usuario implements Serializable
         respuestas.remove(respuesta);
         respuesta.getUsuarios().remove(this);
     }
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuarios")
-    private Long idUsuarios;
-    private String nombre;
-    private String email;
-    private String matricula;
-    private String contraseña;
-    @Column(name = "create_at")
-    private Date createAt;
 
     public Long getIdUsuarios() {
         return idUsuarios;

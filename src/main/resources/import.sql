@@ -1,1 +1,0 @@
-INSERT INTO usuarios_respuestas (respuesta_id, usuario_id) VALUES (3,1);
