@@ -46,6 +46,8 @@ public class UsuarioController
             model.addAttribute("usuario", new Usuario());
             return "login";
         }
+
+        double aux =  2.55/0;
         return "redirect:/itep/test";
     }
 
@@ -88,7 +90,7 @@ public class UsuarioController
         }
             catch(DataIntegrityViolationException ex)
         {
-            flash.addFlashAttribute("error","El usuario o matricula ya existen");
+            flash.addFlashAttribute("error","El correo electronico o matricula que ingresaste ya fue registrada!");
         }
         return "redirect:/usuario/login";
     }

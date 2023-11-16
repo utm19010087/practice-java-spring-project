@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&display=swap');
+
+p{
+  font-family: 'DM Sans', sans-serif;
+}
+
+.alert-error {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #f44336;
+  margin-bottom: 15px;
+  z-index: 1000;
+}
+
+.alert-success {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #58db30;
+  color: white;
+  margin-bottom: 15px;
+  z-index: 1000;
+}
+
+.alert-info {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #49d0f2;
+  color: white;
+  margin-bottom: 15px;
+  z-index: 1000;
+}
+
+.alert-warning {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #e8fa28;
+  color: white;
+  margin-bottom: 15px;
+  z-index: 1000;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}

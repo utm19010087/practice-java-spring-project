@@ -1,6 +1,7 @@
 package org.utma.ItepTest.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serializable;
 import java.util.Date;
