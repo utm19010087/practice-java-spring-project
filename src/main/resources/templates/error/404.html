@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ha ocurrido un error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/error_module.css}"/>
 </head>
 <body>
-    <h3>Oops! ha ocurrido un error 404</h3>
-    <div th:text="${error}">
-        <div th:text="${message}">asdasd</div>
-        <div th:text="${status}"></div>
-        <div th:text="${trace}"></div>  <!--Solo para desarrollo-->
+    <h1>404 Error Page</h1>
+    <section class="error-container">
+        <span><span>4</span></span>
+        <span>0</span>
+        <span><span>4</span></span>
+    </section>
+    <div class="link-container">
+        <a target="_blank"class="more-link">Page not found</a>
     </div>
 </body>
 </html>

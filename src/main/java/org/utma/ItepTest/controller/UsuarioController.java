@@ -56,7 +56,7 @@ public class UsuarioController
         }
             else
         {
-            flash.addFlashAttribute("error_login","Usuario o contraseña incorrecta");
+            flash.addFlashAttribute("error_login","Usuario o contraseña incorrecta *");
         }
         return "redirect:/usuario/login";
     }
