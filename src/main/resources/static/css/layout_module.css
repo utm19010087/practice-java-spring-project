@@ -12,6 +12,8 @@ p{
   background-color: #f44336;
   margin-bottom: 15px;
   z-index: 1000;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .alert-success {
@@ -23,6 +25,8 @@ p{
   color: white;
   margin-bottom: 15px;
   z-index: 1000;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .alert-info {
@@ -34,6 +38,8 @@ p{
   color: white;
   margin-bottom: 15px;
   z-index: 1000;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .alert-warning {
@@ -45,6 +51,8 @@ p{
   color: white;
   margin-bottom: 15px;
   z-index: 1000;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 /* The close button */
