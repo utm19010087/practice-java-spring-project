@@ -3,7 +3,6 @@ package org.utma.ItepTest.controller;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +11,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.utma.ItepTest.controller.editor.UsuarioEmailPropertyEditor;
-import org.utma.ItepTest.controller.editor.UsuarioMatriculaPropertyEditor;
+import org.utma.ItepTest.controller.editor.ValuePropertyEditor;
 import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.service.IUsuarioService;
 
-import java.nio.channels.FileLock;
 import java.util.Date;
 
 @Controller
@@ -27,16 +24,15 @@ public class UsuarioController
 {
     @Autowired
     private IUsuarioService usuarioService;
+
     @Autowired
-    private UsuarioMatriculaPropertyEditor usuarioMatriculaPropertyEditor;
-    @Autowired
-    private UsuarioEmailPropertyEditor usuarioEmailPropertyEditor;
+    private ValuePropertyEditor valuePropertyEditor;
 
     @InitBinder
     public void initBinder(WebDataBinder binder)
     {
-        binder.registerCustomEditor(String.class,"matricula", usuarioMatriculaPropertyEditor);
-        binder.registerCustomEditor(String.class,"email",usuarioEmailPropertyEditor);
+        binder.registerCustomEditor(String.class,"matricula", valuePropertyEditor);
+        binder.registerCustomEditor(String.class,"email", valuePropertyEditor);
     }
 
     @GetMapping("/login")
@@ -48,8 +44,6 @@ public class UsuarioController
             model.addAttribute("usuario", new Usuario());
             return "login";
         }
-
-        double aux =  2.55/0;
         return "redirect:/itep/test";
     }
 
@@ -61,7 +55,7 @@ public class UsuarioController
             Usuario usuario = usuarioService.findByMatricula(usuarioParam.getMatricula());
             model.addAttribute("usuario", usuario);
             session.setAttribute("usuarioId", usuario.getIdUsuarios());
-            return "redirect:/itep/test";
+            return "redirect:/itep/info";
         }
             else
         {

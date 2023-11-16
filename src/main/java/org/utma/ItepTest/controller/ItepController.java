@@ -23,6 +23,13 @@ public class ItepController
     @Autowired
     private IUsuarioService usuarioService;
 
+    @GetMapping("/info")
+    public String info(Model model)
+    {
+        model.addAttribute("main_message",true);
+        return "info_messages";
+    }
+
     @GetMapping("/test")
     public String test(Model model, HttpSession session)
     {

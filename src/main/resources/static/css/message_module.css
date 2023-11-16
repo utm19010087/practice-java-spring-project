@@ -1,0 +1,131 @@
+body {
+    /* background-color: #131e44;    COLOR 1*/
+    /* background-color: #25356e; COLOR 2 */
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
+
+#nabvar {
+    width: 100%;
+    position: fixed;
+
+}
+
+#leftNav {
+    width: 50%;
+    height: 20%;
+    float: left;
+    z-index: -1;
+
+}
+
+#logo {
+    background: transparent;
+    height: 15%;
+    width: 25%;
+    margin-left: 15px;
+}
+
+.header1 {
+    width: 100%;
+    text-align: center;
+    color: rgb(225, 223, 223);
+
+}
+
+#head {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 3%;
+}
+
+#main {
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+#leftSide {
+    width: 40%;
+    height: 310px;
+    background-color: #d6e7fd;
+    float: left;
+    margin-left: 20%;
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px black;
+    transform: translateY(30px);
+    transform: translateX(150px);
+    font-family:'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+#leftSide:hover {
+    transition: 0.6s;
+    background-color: #bed9fb;
+}
+
+#leftHeader {
+    text-align: center;
+}
+
+
+#nextButton {
+    float: right;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin-right: 40%;
+    margin-top: 15px;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: #a7e245;
+}
+
+#nextButton:hover {
+    transition: 0.5s;
+    background-color: #131e44;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* fondo */
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(59, 119, 192) 50%, rgb(101, 142, 200) 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -5;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+
+}
+
+.bg3 {
+    animation-duration: 5s;
+
+}
+
+
+h1 {
+    font-family: monospace;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-13%);
+    }
+
+    100% {
+        transform: translateX(13%);
+    }
+}

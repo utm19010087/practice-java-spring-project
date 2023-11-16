@@ -6,38 +6,32 @@
     <link rel="stylesheet" th:href="@{/css/layout_module.css}">
 </head>
 <body>
-
-    <!--DEV-->
+    <!--Flash Messenger-->
     <header th:fragment="header_fragment">
-
         <div th:if="${error != null}">
             <div class="alert-error">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <p th:text="${error}"></p>
             </div>
         </div>
-
         <div th:if="${success != null}">
             <div class="alert-success">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <p th:text="${success}"></p>
             </div>
         </div>
-
         <div th:if="${warning != null}">
             <div class="alert-warning">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <p th:text="${warning}"></p>
             </div>
         </div>
-
         <div th:if="${info != null}">
             <div class="alert-info">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <p th:text="${info}"></p>
             </div>
         </div>
-
     </header>
     <script th:src="@{/js/login_module.js}" type="text/javascript"></script>
 </body>
