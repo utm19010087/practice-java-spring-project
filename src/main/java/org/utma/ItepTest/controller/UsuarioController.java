@@ -38,10 +38,15 @@ public class UsuarioController
     }
 
     @GetMapping("/login")
-    public String login(Model model)
+    public String login(Model model, HttpSession session)
     {
-        model.addAttribute("usuario", new Usuario());
-        return "login";
+        Long usuarioId = (Long) session.getAttribute("usuarioId");
+        if (usuarioId == null)
+        {
+            model.addAttribute("usuario", new Usuario());
+            return "login";
+        }
+        return "redirect:/itep/test";
     }
 
     @PostMapping("/login")
