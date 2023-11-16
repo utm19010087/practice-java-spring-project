@@ -19,5 +19,6 @@ public class UsuarioValidation implements Validator
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","Email.usuario.email");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"matricula","NotEmpty.usuario.matricula");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"contraseña","NotEmpty.usuario.contraseña");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"matricula","Pattern.usuario.matricula");
     }
 }

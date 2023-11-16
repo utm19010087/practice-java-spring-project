@@ -9,8 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable
-{
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +20,7 @@ public class Usuario implements Serializable
 
     private String email;
 
+    @Pattern(regexp = "utm\\d{8}")
     private String matricula;
 
     private String contraseña;

@@ -3,6 +3,7 @@ package org.utma.ItepTest.controller;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import org.utma.ItepTest.controller.editor.UsuarioMatriculaPropertyEditor;
 import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.service.IUsuarioService;
 
+import java.nio.channels.FileLock;
 import java.util.Date;
 
 @Controller
@@ -76,13 +78,15 @@ public class UsuarioController
     }
 
     @PostMapping("/registro")
-    public String registrar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status, RedirectAttributes flash)
+    public String registrar(@Valid Usuario usuario, BindingResult result,
+                            Model model, SessionStatus status, RedirectAttributes flash)
     {
         try
         {
             if (result.hasErrors())
             {
-                return "login";
+                flash.addFlashAttribute("error","Debes ingresar una matricula con el formato UTM y los 8 digitos !");
+                return "redirect:/usuario/login";
             }
             usuario.setCreateAt(new Date());
             usuarioService.save(usuario);
