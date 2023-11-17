@@ -1,9 +1,12 @@
 package org.utma.ItepTest.model.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.utma.ItepTest.model.dao.IResultadoDao;
+import org.utma.ItepTest.model.entity.Pregunta;
 import org.utma.ItepTest.model.entity.Respuesta;
 import org.utma.ItepTest.model.entity.Resultado;
 import org.utma.ItepTest.model.service.IPreguntaService;
@@ -85,8 +88,8 @@ public class ResultadoServiceImpl implements IResultadoService
 
     @Override
     @Transactional(readOnly = true)
-    public List<Resultado> findResultadoByUsuarioId(Long id) {
-        return resultadoDao.findResultadoByUsuarioId(id);
+    public Page<Resultado> findResultadoByUsuarioId(Long id, Pageable pageable) {
+        return resultadoDao.findResultadoByUsuarioId(id, pageable);
     }
 
     @Override
@@ -94,4 +97,5 @@ public class ResultadoServiceImpl implements IResultadoService
     public void deleteResultadoByUsuarioId(Long id) {
         resultadoDao.deleteResultadoByUsuarioId(id);
     }
+
 }

@@ -2,9 +2,16 @@ package org.utma.ItepTest.controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.utma.ItepTest.model.dao.IResultadoDao;
+import org.utma.ItepTest.model.entity.Pregunta;
+import org.utma.ItepTest.model.entity.Resultado;
+import org.utma.ItepTest.model.pagination.PageRender;
 import org.utma.ItepTest.model.service.IPreguntaService;
 import org.utma.ItepTest.model.service.IResultadoService;
 import org.utma.ItepTest.model.service.IUsuarioService;
@@ -38,7 +45,6 @@ public class ItepController
         {
             return "redirect:/usuario/login";
         }
-
         model.addAttribute("usuarioId",usuarioId);
         model.addAttribute("preguntas",preguntaService.findAll());
         return "test/itep_test";
@@ -59,15 +65,19 @@ public class ItepController
     }
 
     @GetMapping("/resultados")
-    public String resultados(HttpSession session,Model model)
+    public String resultados(@RequestParam(name = "page", defaultValue = "0") int page ,HttpSession session,Model model)
     {
         Long usuarioId = (Long) session.getAttribute("usuarioId");
         if (usuarioId == null)
         {
             return "redirect:/usuario/login";
         }
+        Pageable pageRequest = PageRequest.of(page,1);
+        Page<Resultado> preguntas = resultadoService.findResultadoByUsuarioId(usuarioId, pageRequest);
+        PageRender<Resultado> pageRender = new PageRender<>("/itep/resultados",preguntas);
         model.addAttribute("usuario", usuarioService.findById(usuarioId));
-        model.addAttribute("resultados",resultadoService.findResultadoByUsuarioId(usuarioId));
+        model.addAttribute("resultados",preguntas);
+        model.addAttribute("page",pageRender);
         return "test/results";
     }
 }

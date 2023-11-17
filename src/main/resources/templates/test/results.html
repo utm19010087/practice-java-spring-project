@@ -22,6 +22,7 @@
                 <h5 th:if="${not resp.isCorrect}" style="color: red" th:text="${resp.texto}"></h5>
             </div>
         </div>
+        <nav th:replace="component/paginator-nav :: paginator_fragment"></nav>
         <a th:href="@{/usuario/logout}">Cerrar sesion</a>
     </div>
 </body>
