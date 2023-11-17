@@ -6,10 +6,10 @@
     <link rel="stylesheet" th:href="@{/css/message_module.css}">
 </head>
 <body>
-    <section th:replace="component/info_layout :: section_fragment"></section>
-    <nav th:replace="component/info_layout :: navbar_fragment"></nav>
+    <section th:replace="component/layout :: section_fragment"></section>
+    <nav th:replace="component/layout :: navbar_fragment"></nav>
     </br>
-    <header th:replace="component/info_layout :: titulo_fragment"></header>
+    <header th:replace="component/layout :: titulo_fragment"></header>
     <!--Message-->
     <main th:if="${main_message}" th:replace="component/info_layout :: main_message_fragment"></main>
 </body>

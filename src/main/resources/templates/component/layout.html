@@ -33,6 +33,26 @@
             </div>
         </div>
     </header>
+    <!--Navbar-->
+    <!-- Section-->
+    <section th:fragment="section_fragment">
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+    </section>
+    <!-- Navbar-->
+    <nav th:fragment="navbar_fragment" id="nabvar">
+        <section id="leftNav">
+            <img id="logo" th:src="@{https://utma.edu.mx/images/Logotipos/UTMA_2023_bco_1.png}" class="nav__logo-image">
+        </section>
+        <section id="rightNav">
+        </section>
+    </nav>
+    </br>
+    <header th:fragment="titulo_fragment" class="header1">
+        <h1 id="head"></h1>
+    </header>
+
     <script th:src="@{/js/login_module.js}" type="text/javascript"></script>
 </body>
 </html>

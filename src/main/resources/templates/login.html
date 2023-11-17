@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/login_module.css}"/>
     <link rel="stylesheet" th:href="@{/css/layout_module.css}">
+    <link rel="stylesheet" th:href="@{/css/message_module.css}">
     <title th:text="'Login'"></title>
 </head>
 <body>
-
+    <section th:replace="component/layout :: section_fragment"></section>
+    <nav th:replace="component/layout :: navbar_fragment"></nav>
+    </br>
+    <header th:replace="component/layout :: titulo_fragment"></header>
     <header th:replace="component/layout :: header_fragment"></header>
 
     <section class="forms-section">
@@ -38,7 +42,6 @@
                 </form>
             </div>
             <div class="form-wrapper">
-            <div class="form-wrapper">
                 <button type="button" class="switcher switcher-signup">
                     Sign Up
                     <span class="underline"></span>
@@ -67,5 +70,4 @@
     </body>
     <script type="text/javascript" th:src="@{/js/login_module.js}"></script>
     <script th:src="@{/js/login_module.js}" type="text/javascript"></script>
-
 </html>

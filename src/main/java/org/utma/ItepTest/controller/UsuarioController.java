@@ -44,7 +44,7 @@ public class UsuarioController
             model.addAttribute("usuario", new Usuario());
             return "login";
         }
-        return "redirect:/itep/test";
+        return "redirect:/itep/info";
     }
 
     @PostMapping("/login")
@@ -79,7 +79,7 @@ public class UsuarioController
         {
             if (result.hasErrors())
             {
-                flash.addFlashAttribute("error","Debes ingresar una matricula con el formato UTM y los 8 digitos !");
+                flash.addFlashAttribute("error","Debes ingresar tu matricula con el formato UTM y sus 8 digitos!");
                 return "redirect:/usuario/login";
             }
             usuario.setCreateAt(new Date());
@@ -88,7 +88,7 @@ public class UsuarioController
         }
             catch(DataIntegrityViolationException ex)
         {
-            flash.addFlashAttribute("error","El correo electronico o matricula que ingresaste ya fue registrada!");
+            flash.addFlashAttribute("error","El correo electronico o matricula que ingresaste ya fueron registrados!");
         }
         return "redirect:/usuario/login";
     }
