@@ -9,14 +9,11 @@
     <title th:text="'Login'"></title>
 </head>
 <body>
-    <section th:replace="component/layout :: section_fragment"></section>
-    <nav th:replace="component/layout :: navbar_fragment"></nav>
-    </br>
-    <header th:replace="component/layout :: titulo_fragment"></header>
-    <header th:replace="component/layout :: header_fragment"></header>
+    <div th:replace="component/layout :: navbar_fragment"></div>
+
 
     <section class="forms-section">
-        <h1 class="section-title">ENGLISH TEST</h1>
+        <h1 class="section-title"></h1>
         <div class="forms">
             <div class="form-wrapper is-active">
                 <button type="button" class="switcher switcher-login">
@@ -69,5 +66,4 @@
     </section>
     </body>
     <script type="text/javascript" th:src="@{/js/login_module.js}"></script>
-    <script th:src="@{/js/login_module.js}" type="text/javascript"></script>
 </html>
