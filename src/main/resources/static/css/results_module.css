@@ -13,8 +13,8 @@ body {
     transform-origin: top;
     background-color: #fff;
     font-size: 16px;
-    min-height: 370px;
-    max-height: 370px;
+    min-height: 340px;
+    max-height: 340px;
 }
 
 .info-container{
@@ -59,7 +59,7 @@ body {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .page-item {
