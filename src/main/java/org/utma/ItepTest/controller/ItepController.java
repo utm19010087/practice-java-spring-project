@@ -72,7 +72,7 @@ public class ItepController
         {
             return "redirect:/usuario/login";
         }
-        Pageable pageRequest = PageRequest.of(page,1);
+        Pageable pageRequest = PageRequest.of(page,2);
         Page<Resultado> preguntas = resultadoService.findResultadoByUsuarioId(usuarioId, pageRequest);
         PageRender<Resultado> pageRender = new PageRender<>("/itep/resultados",preguntas);
         model.addAttribute("usuario", usuarioService.findById(usuarioId));

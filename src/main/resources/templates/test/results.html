@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <title>Results</title>
     <link rel="stylesheet" th:href="@{/css/message_module.css}">
-    <link rel="stylesheet" th:href="@{/css/pagination_module.css}">
+    <link rel="stylesheet" th:href="@{/css/results_module.css}">
 </head>
 <body>
     <div th:replace="component/layout :: navbar_fragment"></div>
-    <div>
-        <h4 th:text="'Bienvenido ' + ${usuario.matricula}"></h4>
+
+    <div class="container">
+        <span class="info-container">
+            <p th:text="'Bienvenido: ' + ${usuario.matricula}"></p>
+        </span>
+
         <div th:each="resultado : ${resultados}">
-            <h4 th:text="${resultado.pregunta.texto}"></h4>
-            <div th:each="resp2 : ${resultado.pregunta.respuestas}">
-                <h5 th:if="${resp2.isCorrect}" style="color: green" th:text="${resp2.texto}"></h5>
-                <h5 th:if="${not resp2.isCorrect}" th:text="${resp2.texto}"></h5>
-            </div>
-            <h4>Tu respuesta</h4>
-            <div th:each="resp : ${resultado.respuesta}">
-                <h5 th:if="${resp.isCorrect}" style="color: green" th:text="${resp.texto}"></h5>
-                <h5 th:if="${not resp.isCorrect}" style="color: red" th:text="${resp.texto}"></h5>
+            <h4 class="pregunta-container" th:text="${resultado.pregunta.texto}"></h4>
+            <div class="repuesta-container" th:each="resp : ${resultado.respuesta}">
+                <h5 th:if="${resp.isCorrect}" class="respuesta-correcta" th:text="${resp.texto}"></h5>
+                <h5 th:if="${not resp.isCorrect}" class="respuesta-incorrecta" th:text="${resp.texto}"></h5>
             </div>
         </div>
-        <nav th:replace="component/paginator-nav :: paginator_fragment"></nav>
-        <a th:href="@{/usuario/logout}">Cerrar sesion</a>
+        <div class="paginator-container">
+            <nav th:replace="component/paginator-nav :: paginator_fragment"></nav>
+        </div>
+    </div>
+    <div>
+        <span>
+            <a th:href="@{/usuario/logout}">Cerrar sesion</a>
+            <a>Repetir</a>
+        </span>
     </div>
 </body>
 </html>
