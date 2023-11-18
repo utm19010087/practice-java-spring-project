@@ -44,6 +44,11 @@ body {
 	line-height: 40px;
 }
 
+.btn-finalize:hover {
+    background: #87c327;
+    transform: scale(1.03);
+}
+
 .pregunta-container{
     margin: 30px 0;
 }

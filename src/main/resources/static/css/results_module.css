@@ -33,7 +33,7 @@ body {
 .respuesta-incorrecta {
   font-weight: bold;
   background-color: #DCA8A8;
-  line-height: 20px;
+  line-height: 25px;
   border-radius: 3px;
   padding-inline: 20px;
 }
@@ -41,7 +41,7 @@ body {
 .respuesta-correcta {
    font-weight: bold;
    background-color: #AFE9BA;
-   line-height: 20px;
+   line-height: 25px;
    border-radius: 3px;
    padding-inline: 20px;
  }
