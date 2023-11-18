@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 
 body {
     margin: 0;
@@ -17,7 +23,7 @@ body {
 }
 
 .formulario label{
-    font-size: 18;
+    font-size: 18px;
 }
 
 .btn-container{
@@ -27,13 +33,14 @@ body {
 }
 
 .btn-finalize {
+    margin-top: 40px;
+    margin-bottom: 20px;
 	color: #fbfdff;
 	background: #a7e245;
-	transform: translateX(-30%);
 	border-radius: 25px;
 	min-width: 120px;
 	border: none;
-	font-size: 18;
+	font-size: 18px;
 	line-height: 40px;
 }
 

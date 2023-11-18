@@ -5,32 +5,35 @@ body {
 
 .container {
     overflow: hidden;
-    width: 80%; /* Ajusta este porcentaje según tus necesidades */
-    max-width: 800px; /* Agrega un límite máximo para mantener la legibilidad */
-    margin: 10% auto; /* Centra verticalmente y ajusta el margen superior según tus necesidades */
+    width: 80%;
+    max-width: 800px;
+    margin: 10% auto;
     padding: 40px 35px;
     border-radius: 5px;
     transform-origin: top;
     background-color: #fff;
     font-size: 16px;
-    min-height: 350px;
-    max-height: 350px;
+    min-height: 370px;
+    max-height: 370px;
 }
 
 .info-container{
-   line-height: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Agrega espacio entre las columnas */
+    margin-bottom: 30px;
 }
 
 .pregunta-container{
     margin: 10px 0;
-    min-height: 40px;
+    min-height: 30px;
     line-height: 20px;
 }
 
 .respuesta-incorrecta {
   font-weight: bold;
   background-color: #DCA8A8;
-  line-height: 30px;
+  line-height: 20px;
   border-radius: 3px;
   padding-inline: 20px;
 }
@@ -38,7 +41,7 @@ body {
 .respuesta-correcta {
    font-weight: bold;
    background-color: #AFE9BA;
-   line-height: 30px;
+   line-height: 20px;
    border-radius: 3px;
    padding-inline: 20px;
  }
@@ -97,4 +100,15 @@ body {
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
+}
+
+.restart-link{
+    text-decoration: none;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.restart-link:hover{
+    color: #0056b3;
+    text-decoration: none;
 }

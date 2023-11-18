@@ -10,13 +10,17 @@
     <div th:replace="component/layout :: navbar_fragment"></div>
     <div class="container">
         <span class="info-container">
-            <p th:text="'Bienvenido: ' + ${usuario.matricula}"></p>
+            <div th:text="'Your ID: ' + ${usuario.matricula}"></div>
+            <div class="paginator-container" th:text="'Score: ' + '85/100'"></div>
+            <div class="paginator-container"><a class="restart-link" th:href="@{/usuario/login}">Restart Test</a></div>
         </span>
+        <hr>
+        <br>
         <div th:each="resultado : ${resultados}">
             <h4 class="pregunta-container" th:text="${resultado.pregunta.texto}"></h4>
             <div class="repuesta-container" th:each="resp : ${resultado.respuesta}">
-                <h5 th:if="${resp.isCorrect}" class="respuesta-correcta" th:text="${resp.texto}"></h5>
-                <h5 th:if="${not resp.isCorrect}" class="respuesta-incorrecta" th:text="${resp.texto}"></h5>
+                <h5 type="radio" disabled th:if="${resp.isCorrect}" class="respuesta-correcta" th:text="${resp.texto}"></h5>
+                <h5 type="radio" disabled th:if="${not resp.isCorrect}" class="respuesta-incorrecta" th:text="${resp.texto}"></h5>
             </div>
         </div>
         <div class="paginator-container">
@@ -26,7 +30,6 @@
     <div>
         <span>
             <a th:href="@{/usuario/logout}">Cerrar sesion</a>
-            <a>Repetir</a>
         </span>
     </div>
 </body>
