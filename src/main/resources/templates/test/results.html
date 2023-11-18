@@ -8,12 +8,10 @@
 </head>
 <body>
     <div th:replace="component/layout :: navbar_fragment"></div>
-
     <div class="container">
         <span class="info-container">
             <p th:text="'Bienvenido: ' + ${usuario.matricula}"></p>
         </span>
-
         <div th:each="resultado : ${resultados}">
             <h4 class="pregunta-container" th:text="${resultado.pregunta.texto}"></h4>
             <div class="repuesta-container" th:each="resp : ${resultado.respuesta}">

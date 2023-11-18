@@ -13,7 +13,7 @@
     <form class="formulario" th:action="@{/itep/test}" method="post" th:object="${respuestaDTO}">
 
       <div class="pregunta-container" th:each="pregunta, preguntaId : ${preguntas}">
-        <h3 th:text="${pregunta.texto}"></h3>
+        <h3 th:text="${preguntaId.index+1} + '- ' +  ${pregunta.texto}"></h3>
         <div th:each="respuesta, respuestaId : ${pregunta.respuestas}">
           <input th:name="'selector[' + ${pregunta.idPreguntas}+']'" type="radio" th:value="${respuesta.idRespuestas}" required>
           <label th:text="${respuesta.texto}"></label>
