@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&display=swap');
+body {
+    margin: 0;
+    font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
 
 p{
   font-family: 'DM Sans', sans-serif;
@@ -16,6 +19,7 @@ p{
   z-index: 1000;
   min-width: 300px;
   max-width: 500px;
+  border-radius: 5px;
 }
 
 .alert-success {
@@ -29,6 +33,7 @@ p{
   z-index: 1000;
   min-width: 300px;
   max-width: 500px;
+  border-radius: 5px;
 }
 
 .alert-info {
@@ -42,6 +47,7 @@ p{
   z-index: 1000;
   min-width: 300px;
   max-width: 500px;
+  border-radius: 5px;
 }
 
 .alert-warning {
@@ -55,9 +61,9 @@ p{
   z-index: 1000;
   min-width: 300px;
   max-width: 500px;
+  border-radius: 5px;
 }
 
-/* The close button */
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -66,10 +72,9 @@ p{
   font-size: 22px;
   line-height: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
 }

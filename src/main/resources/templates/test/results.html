@@ -12,7 +12,10 @@
         <span class="info-container">
             <div th:text="'Your ID: ' + ${usuario.matricula}"></div>
             <div class="paginator-container" th:text="'Score: ' + '85/100'"></div>
-            <div class="paginator-container"><a class="restart-link" th:href="@{/usuario/login}">Restart Test</a></div>
+            <div class="paginator-container">
+                <a class="restart-link" th:href="@{/usuario/login}">Restart Test</a>
+                <a class="restart-link" th:href="@{/usuario/logout}">Logout</a>
+            </div>
         </span>
         <hr>
         <br>
@@ -26,11 +29,6 @@
         <div class="paginator-container">
             <nav th:replace="component/paginator-nav :: paginator_fragment"></nav>
         </div>
-    </div>
-    <div>
-        <span>
-            <a th:href="@{/usuario/logout}">Cerrar sesion</a>
-        </span>
     </div>
 </body>
 </html>

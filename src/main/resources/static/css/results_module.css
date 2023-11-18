@@ -112,3 +112,7 @@ body {
     color: #0056b3;
     text-decoration: none;
 }
+
+a.restart-link{
+    margin-inline: 10px;
+}
