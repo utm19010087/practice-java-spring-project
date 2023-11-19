@@ -44,7 +44,7 @@ public class UsuarioController
             model.addAttribute("usuario", new Usuario());
             return "login";
         }
-        return "redirect:/itep/info";
+        return "redirect:/usuario/menu";
     }
 
     @PostMapping("/login")
@@ -55,13 +55,25 @@ public class UsuarioController
             Usuario usuario = usuarioService.findByMatricula(usuarioParam.getMatricula());
             model.addAttribute("usuario", usuario);
             session.setAttribute("usuarioId", usuario.getIdUsuarios());
-            return "redirect:/itep/info";
+            return "redirect:/usuario/menu";
         }
             else
         {
             flash.addFlashAttribute("error_login","Usuario o contraseña incorrecta *");
         }
         return "redirect:/usuario/login";
+    }
+
+    @GetMapping("/menu")
+    public String menu(Model model, HttpSession session)
+    {
+        Long usuarioId = (Long) session.getAttribute("usuarioId");
+        if (usuarioId == null)
+        {
+            model.addAttribute("usuario", new Usuario());
+            return "login";
+        }
+        return "menu";
     }
 
     @GetMapping("/logout")
