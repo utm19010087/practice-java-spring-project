@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.utma.ItepTest.controller.auxiliar.LoginValidator;
 import org.utma.ItepTest.controller.editor.ValuePropertyEditor;
 import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.service.IUsuarioService;
@@ -28,6 +29,9 @@ public class UsuarioController
     @Autowired
     private ValuePropertyEditor valuePropertyEditor;
 
+    @Autowired
+    private LoginValidator loginValidator;
+
     @InitBinder
     public void initBinder(WebDataBinder binder)
     {
@@ -38,8 +42,7 @@ public class UsuarioController
     @GetMapping("/login")
     public String login(Model model, HttpSession session)
     {
-        Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null)
+        if (loginValidator.validator(session))
         {
             model.addAttribute("usuario", new Usuario());
             return "login";
@@ -67,11 +70,10 @@ public class UsuarioController
     @GetMapping("/menu")
     public String menu(Model model, HttpSession session)
     {
-        Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null)
+        if (loginValidator.validator(session))
         {
             model.addAttribute("usuario", new Usuario());
-            return "login";
+            return "redirect:/usuario/login";
         }
         return "menu";
     }
@@ -79,7 +81,7 @@ public class UsuarioController
     @GetMapping("/logout")
     public String logout(HttpSession session)
     {
-        if (session.getAttribute("usuarioId")!=null)
+        if (!(loginValidator.validator(session)))
         {
             session.invalidate();
         }

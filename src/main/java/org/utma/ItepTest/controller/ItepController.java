@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.utma.ItepTest.controller.auxiliar.LoginValidator;
 import org.utma.ItepTest.model.dao.IResultadoDao;
 import org.utma.ItepTest.model.entity.Pregunta;
 import org.utma.ItepTest.model.entity.Resultado;
@@ -30,6 +31,9 @@ public class ItepController
     @Autowired
     private IUsuarioService usuarioService;
 
+    @Autowired
+    private LoginValidator loginValidator;
+
     @GetMapping("/info")
     public String info(Model model)
     {
@@ -40,12 +44,11 @@ public class ItepController
     @GetMapping("/test")
     public String test(Model model, HttpSession session)
     {
-        Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null)
+        if (loginValidator.validator(session))
         {
             return "redirect:/usuario/login";
         }
-        model.addAttribute("usuarioId",usuarioId);
+        model.addAttribute("usuarioId",session.getAttribute("usuarioId"));
         model.addAttribute("preguntas",preguntaService.findAll());
         return "test/itep_test";
     }
@@ -54,7 +57,7 @@ public class ItepController
     public String testPost(@ModelAttribute RespuestaDto respuestaDto, Model model, HttpSession session)
     {
         Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null)
+        if (loginValidator.validator(session))
         {
             return "redirect:/usuario/login";
         }
@@ -68,7 +71,7 @@ public class ItepController
     public String resultados(@RequestParam(name = "page", defaultValue = "0") int page ,HttpSession session,Model model)
     {
         Long usuarioId = (Long) session.getAttribute("usuarioId");
-        if (usuarioId == null)
+        if (loginValidator.validator(session))
         {
             return "redirect:/usuario/login";
         }
