@@ -1,4 +1,4 @@
-package org.utmat
+package org.utma
 
 import org.utma.ItepTest.model.entity.Usuario
 import spock.lang.Specification
