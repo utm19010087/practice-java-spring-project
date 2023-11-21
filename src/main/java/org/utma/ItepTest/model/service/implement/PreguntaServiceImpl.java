@@ -32,13 +32,13 @@ public class PreguntaServiceImpl implements IPreguntaService
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Pregunta findById(Long id) {
         return preguntaDao.findById(id).orElse(null);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Pregunta> findAll() {
         return List.copyOf(preguntaDao.findAll());
     }
