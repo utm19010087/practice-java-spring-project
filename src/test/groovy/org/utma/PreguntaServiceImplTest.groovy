@@ -6,16 +6,22 @@ import org.utma.ItepTest.model.service.IPreguntaService
 import org.utma.ItepTest.model.service.implement.PreguntaServiceImpl
 import spock.lang.Specification
 
-class PreguntaServiceImplTest extends Specification
-{
-    @Autowired
-    private IPreguntaService preguntaService;
+/**
+ * Pruebas para el servicio de Pregunta (PreguntaServiceImpl).
+ */
+class PreguntaServiceImplTest extends Specification {
 
-    def "Find all no retorna null"()
-    {
+    @Autowired
+    private IPreguntaService preguntaService
+
+    /**
+     * Verifica que el método findAll() no retorna null.
+     */
+    def "findAll() no retorna null"() {
         when:
-        def pregunta = preguntaService.findAll()
+        def preguntas = preguntaService.findAll()
+
         then:
-        pregunta != null
+        preguntas != null
     }
 }
