@@ -19,7 +19,7 @@ import org.utma.ItepTest.model.service.IUsuarioService;
 import java.util.Date;
 
 /**
- *
+ * UsuarioController
  * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
  * @version 0.1, 2023/05/21
  */
