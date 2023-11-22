@@ -1,7 +1,42 @@
 body {
+    margin: 0;
     font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 }
 
+/* Importante*/
+
+.container-info-box
+{
+    overflow: hidden;
+    width: 80%;
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 40px 35px;
+    border-radius: 5px;
+    transform-origin: top;
+    background-color: #fff;
+    font-size: 16px;
+    min-height: 150px;
+    max-height: 250px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.container-info {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-info-item{
+    margin-bottom: 1rem;
+}
+
+
+/*   */
 #nabvar {
     width: 100%;
     position: fixed;
@@ -68,41 +103,6 @@ body {
     text-align: center;
 }
 
-#rightSide {
-    width: 40%;
-    height: 320px;
-    background-color: #eef5fe;
-    float: right;
-    margin-right: 27%;
-    margin-top:2%;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 15px 15px 15px black;
-    padding: 2%;
-}
-
-#rightSide:hover {
-    transition: 0.6s;
-    background-color: #d6e7fd;
-}
-
-#rightHeader {
-    text-align: center;
-    height: 20px;
-    font-family:'Times New Roman', Times, serif;
-}
-
-.questionBox {
-    height: 85px;
-    text-align: center;
-    font-size: 15px;
-}
-
-.question {
-    font-size: 15px;
-    font-family:'Times New Roman', Times, serif;
-}
-
 
 #nextButton {
     float: right;
@@ -161,4 +161,38 @@ h1 {
     100% {
         transform: translateX(13%);
     }
+}
+
+.btn-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.btn-finalize {
+    margin-top: 20px;
+    margin-bottom: 20px;
+	color: #fbfdff;
+	background: #a7e245;
+	border-radius: 25px;
+	min-width: 120px;
+	border: none;
+	font-size: 18px;
+	line-height: 40px;
+	transition: all 0.3s ease-in-out;
+}
+
+.link-finalize{
+    text-decoration: none;
+    color: #fbfdff;
+}
+
+.btn-finalize:hover {
+    background: #87c327;
+    transform: scale(1.03);
+}
+
+@media screen and (min-width: 600px){
+
 }
