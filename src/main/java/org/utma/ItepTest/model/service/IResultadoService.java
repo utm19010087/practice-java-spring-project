@@ -14,4 +14,6 @@ public interface IResultadoService extends IService<Resultado>
     public Page<Resultado> findResultadoByUsuarioId(Long id, Pageable pageable);
     public void deleteResultadoByUsuarioId(Long id);
 
+    public int findResultadoByUsuarioIdWhereIsCorrect(Long id);
+
 }

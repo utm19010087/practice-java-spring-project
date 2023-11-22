@@ -19,6 +19,8 @@ public class Respuesta implements Serializable {
     @Column(name = "is_correct")
     private Boolean isCorrect;
 
+    private int valor;
+
     @Column(name = "fk_id_preguntas")
     private int fkIdPreguntas;
 
@@ -63,6 +65,14 @@ public class Respuesta implements Serializable {
 
     public void setFkIdPreguntas(int fkIdPreguntas) {
         this.fkIdPreguntas = fkIdPreguntas;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 }
 

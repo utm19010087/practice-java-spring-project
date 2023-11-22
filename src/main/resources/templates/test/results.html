@@ -11,7 +11,7 @@
   <div class="container">
       <span class="info-container">
           <div th:text="'Your ID: ' + ${usuario.matricula}"></div>
-          <div class="paginator-container" th:text="'Score: ' + '85/100'"></div>
+          <div class="paginator-container" th:text="'Score: ' + ${usuario.ultimaPuntuacion}"></div>
           <div class="paginator-container">
               <a class="restart-link" th:href="@{/itep/info}">Restart Test</a>
               <a class="restart-link" th:href="@{/usuario/logout}">Logout</a>

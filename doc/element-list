@@ -1,0 +1,12 @@
+org.utma.ItepTest
+org.utma.ItepTest.controller
+org.utma.ItepTest.controller.auxiliar
+org.utma.ItepTest.controller.editor
+org.utma.ItepTest.controller.error
+org.utma.ItepTest.model.dao
+org.utma.ItepTest.model.entity
+org.utma.ItepTest.model.entity.validation
+org.utma.ItepTest.model.pagination
+org.utma.ItepTest.model.service
+org.utma.ItepTest.model.service.dto
+org.utma.ItepTest.model.service.implement

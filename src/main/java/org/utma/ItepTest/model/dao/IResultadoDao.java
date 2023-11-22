@@ -18,4 +18,7 @@ public interface IResultadoDao extends JpaRepository<Resultado, Long> {
     @Modifying
     @Query("DELETE FROM Resultado r WHERE r.usuario.idUsuarios = ?1")
     public void deleteResultadoByUsuarioId(Long id);
+
+    @Query("SELECT COUNT(*) FROM Resultado r WHERE r.usuario.idUsuarios = ?1 and r.respuesta.isCorrect = true")
+    public int findResultadoByUsuarioWhereRespuestaIsCorrect(Long id);
 }

@@ -98,4 +98,9 @@ public class ResultadoServiceImpl implements IResultadoService
         resultadoDao.deleteResultadoByUsuarioId(id);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public int findResultadoByUsuarioIdWhereIsCorrect(Long id) {
+        return resultadoDao.findResultadoByUsuarioWhereRespuestaIsCorrect(id);
+    }
 }

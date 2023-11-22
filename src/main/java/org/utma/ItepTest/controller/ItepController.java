@@ -12,11 +12,14 @@ import org.utma.ItepTest.controller.auxiliar.LoginValidator;
 import org.utma.ItepTest.model.dao.IResultadoDao;
 import org.utma.ItepTest.model.entity.Pregunta;
 import org.utma.ItepTest.model.entity.Resultado;
+import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.pagination.PageRender;
 import org.utma.ItepTest.model.service.IPreguntaService;
 import org.utma.ItepTest.model.service.IResultadoService;
 import org.utma.ItepTest.model.service.IUsuarioService;
 import org.utma.ItepTest.model.service.dto.RespuestaDto;
+
+import java.util.Date;
 
 @Controller
 @RequestMapping("/itep")
@@ -61,9 +64,17 @@ public class ItepController
         {
             return "redirect:/usuario/login";
         }
+
         respuestaDto.setUsuarioId(usuarioId);
         resultadoService.deleteResultadoByUsuarioId(usuarioId);
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
+
+        Usuario usuario = new Usuario();
+        usuario = usuarioService.findById(usuarioId);
+        usuario.setUltimaAplicacion(new Date());
+        usuario.setUltimaPuntuacion(resultadoService.findResultadoByUsuarioIdWhereIsCorrect(usuarioId));
+        usuarioService.save(usuario);
+
         return "redirect:/itep/resultados";
     }
 

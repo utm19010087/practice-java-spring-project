@@ -28,6 +28,12 @@ public class Usuario implements Serializable {
     @Column(name = "create_at")
     private Date createAt;
 
+    @Column(name = "ultima_aplicacion")
+    private Date ultimaAplicacion;
+
+    @Column(name = "ultima_puntuacion")
+    private int ultimaPuntuacion;
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "usuarios_respuestas", joinColumns = @JoinColumn(name = "respuesta_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
     private List<Respuesta> respuestas;
@@ -98,5 +104,21 @@ public class Usuario implements Serializable {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public Date getUltimaAplicacion() {
+        return ultimaAplicacion;
+    }
+
+    public void setUltimaAplicacion(Date ultimaAplicacion) {
+        this.ultimaAplicacion = ultimaAplicacion;
+    }
+
+    public int getUltimaPuntuacion() {
+        return ultimaPuntuacion;
+    }
+
+    public void setUltimaPuntuacion(int ultimaPuntuacion) {
+        this.ultimaPuntuacion = ultimaPuntuacion;
     }
 }

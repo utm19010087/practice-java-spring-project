@@ -14,8 +14,8 @@
                 <h3>Results Review</h3>
                 <hr>
                 <div class="item-container" th:text="'Your ID: ' + ${usuario.matricula} + '.'"></div>
-                <div class="item-container" th:text="'Last Score: 85/100.'"></div>
-                <div class="item-container" th:text="'Last Applicacion Date: 19/11/2023.'"></div>
+                <div class="item-container" th:text="'Last Score: ' + ${usuario.ultimaPuntuacion}"></div>
+                <div class="item-container" th:text="'Last Applicacion Date: ' + ${usuario.ultimaAplicacion}"></div>
                 <div class="btn-container">
                     <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/resultados}">Go To</a></button>
                 </div>
