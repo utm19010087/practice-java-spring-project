@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/message_module.css}">
+</head>
+<body>
+    <div th:replace="component/layout :: navbar_fragment"></div>
+    <main th:fragment="grammar_message_fragment" id="main">
+        <section id="rightSide">
+            <article id="rightHeader">
+                <h2>Instructions</h2>
+            </article>
+            <article class="questionBox">
+                <h1 class="question">In the Grammar section, there are two questions types:</h1>
+                <h1 class="question">In questions 1-13, you must click on the circle nest to the word or phrase that correctly completes the sentence.</h1>
+                <h1 class="question">In questions 14-25, you must click on the circle nest to the incorrect word or phrase in the sentence.</h1>
+                <h1 class="question">You will be shown one example before each of the two different question types. You have 10
+                    minutes to review the examples and answer 25 questions. During the 10 minutes, you may use the "Back" button to return
+                    to any question and, if you wish, change your answer.
+                </h1>
+            </article>
+
+            <article id="navegation">
+                <a th:href="@{/itep/test}"><button id="nextButton">Continue</button></a>
+            </article>
+
+        </section>
+    </main>
+</body>
+</html>
