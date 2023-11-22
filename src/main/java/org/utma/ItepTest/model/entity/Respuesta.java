@@ -24,7 +24,7 @@ import java.util.List;
  * </p>
  *
  * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
- * @version [Versión del software o clase]
+ * @version 0.1, 2023/11/22
  */
 @Entity
 @Table(name = "respuestas")

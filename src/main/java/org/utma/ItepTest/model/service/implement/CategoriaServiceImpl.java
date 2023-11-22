@@ -16,8 +16,8 @@ import java.util.List;
  * Proporciona métodos transaccionales para realizar operaciones CRUD en la entidad Categoria.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 @Service
 public class CategoriaServiceImpl implements ICategoriaService

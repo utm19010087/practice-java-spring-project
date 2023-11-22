@@ -17,21 +17,29 @@ import java.util.List;
  * relacionadas con la autenticación de usuarios.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 @Service
 public class UsuarioServiceImpl implements IUsuarioService
 {
     @Autowired
     private IUsuarioDao usuarioDao;
-
+    /**
+     * Guarda un nuevo usuario.
+     *
+     * @param usuario El usuario a guardar.
+     */
     @Override
     @Transactional
     public void save(Usuario usuario) {
         usuarioDao.save(usuario);
     }
-
+    /**
+     * Elimina un usuario por su identificador.
+     *
+     * @param id El identificador del usuario a eliminar.
+     */
     @Override
     @Transactional
     public void deleteById(Long id) {
@@ -40,25 +48,45 @@ public class UsuarioServiceImpl implements IUsuarioService
             usuarioDao.deleteById(id);
         }
     }
-
+    /**
+     * Busca un usuario por su identificador.
+     *
+     * @param id El identificador del usuario a buscar.
+     * @return El usuario encontrado o null si no existe.
+     */
     @Override
     @Transactional(readOnly = true)
     public Usuario findById(Long id) {
         return usuarioDao.findById(id).orElse(null);
     }
-
+    /**
+     * Obtiene todos los usuarios.
+     *
+     * @return Lista de todos los usuarios.
+     */
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> findAll() {
         return List.copyOf(usuarioDao.findAll());
     }
-
+    /**
+     * Busca un usuario por su matrícula.
+     *
+     * @param matricula La matrícula del usuario a buscar.
+     * @return El usuario encontrado o null si no existe.
+     */
     @Override
     @Transactional(readOnly = true)
     public Usuario findByMatricula(String matricula) {
         return usuarioDao.findUsuarioByMatricula(matricula);
     }
-
+    /**
+     * Realiza la autenticación de un usuario con matrícula y contraseña.
+     *
+     * @param matricula La matrícula del usuario.
+     * @param password  La contraseña del usuario.
+     * @return true si la autenticación es exitosa, false en caso contrario.
+     */
     @Override
     public boolean loginWithMatriculaWithPassword(String matricula, String password) {
         Usuario usuario;

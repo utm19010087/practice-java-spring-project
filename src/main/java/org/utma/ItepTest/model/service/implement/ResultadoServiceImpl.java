@@ -25,8 +25,8 @@ import java.util.List;
  * para gestionar resultados en relación con usuarios, preguntas y respuestas.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 @Service
 public class ResultadoServiceImpl implements IResultadoService

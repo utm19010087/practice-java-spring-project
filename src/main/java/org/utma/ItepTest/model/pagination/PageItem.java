@@ -6,8 +6,8 @@ package org.utma.ItepTest.model.pagination;
  * Cada instancia de esta clase contiene información sobre un número de página y si es la página actual o no.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 public class PageItem
 {

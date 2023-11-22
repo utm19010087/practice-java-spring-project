@@ -16,8 +16,8 @@ body {
     transform-origin: top;
     background-color: #fff;
     font-size: 16px;
-    min-height: 150px;
-    max-height: 250px;
+    min-height: 250px;
+    max-height: 300px;
 }
 
 .titulo {
@@ -167,12 +167,10 @@ h1 {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top: .5rem;
+    margin: 1.3rem;
 }
 
 .btn-finalize {
-    margin-top: 20px;
-    margin-bottom: 20px;
 	color: #fbfdff;
 	background: #a7e245;
 	border-radius: 25px;

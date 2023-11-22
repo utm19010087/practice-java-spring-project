@@ -25,8 +25,8 @@ import java.util.List;
  * La relación @OneToMany indica que esta entidad tiene una relación de uno a muchos con la entidad Respuesta.
  * </p>
  *
- * @author Francisco Javier Gonzalez Huerta / Fabrica de software - UTMA
- * @version 0.1,
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 @Entity
 @Table(name = "preguntas")

@@ -36,6 +36,7 @@ body {
     display:flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .btn-finalize {
@@ -48,6 +49,7 @@ body {
 	border: none;
 	font-size: 18px;
 	line-height: 40px;
+	transition: all 0.3s ease-in-out;
 }
 
 .link-finalize{
