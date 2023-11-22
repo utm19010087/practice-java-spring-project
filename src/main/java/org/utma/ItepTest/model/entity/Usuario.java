@@ -29,8 +29,8 @@ import java.util.List;
  * La relación @ManyToMany indica que esta entidad tiene una relación de muchos a muchos con la entidad Respuesta.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/21
  */
 @Entity
 @Table(name = "usuarios")

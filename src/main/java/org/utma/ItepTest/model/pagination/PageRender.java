@@ -13,8 +13,8 @@ import java.util.List;
  * </p>
  *
  * @param <T> Tipo de elemento que contiene la página.
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 public class PageRender <T>
 {

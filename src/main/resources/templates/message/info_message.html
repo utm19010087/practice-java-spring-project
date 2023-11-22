@@ -7,39 +7,20 @@
 </head>
 <body>
     <div th:replace="component/layout :: navbar_fragment"></div>
-    <!--
-    <main  th:fragment="main_message_fragment" id="main">
-        <section id="leftSide">
-            <article id="leftHeader">
-                <h2>Test Information</h2>
-            </article>
-            <h4><article id="nameUser">iTEP have five sections</article></h4>
-            <h4> Reading, Listening,
-                Grammar,  Writing,  and  Speaking.</h4>
-            <h4>Please note that in each section, examinees
-                will encounter content and questions targeted at varying levels of proficiency. </article>
-            </h4>
-            <article id="navegation">
-                <a th:href="@{/itep/grammar_info}"><button id="nextButton">Continue</button></a>
-            </article>
-        </section>
-    </main>
-    -->
     <div class="container-info-box">
         <div class="titulo">
             <h3 class="tres">Test Information</h3><hr>
         </div>
         <div class="container-info">
             <div>
-                <div class="container-info-item">iTEP have five section</div>
-                <div class="container-info-item">Grammar, Reading, Listening, Writing,  and  Speaking.</div>
-                <div class="container-info-item">Please note that in each section, examinees will encounter content and questions targeted at varying levels of proficiency. </div>
+                <div class="container-info-item"> - iTEP have five sections.</div>
+                <div class="container-info-item"> - Grammar, Reading, Listening, Writing,  and  Speaking.</div>
+                <div class="container-info-item"> - Please note that in each section, examinees will encounter content and questions targeted at varying levels of proficiency.</div>
             </div>
         </div>
         <div class="btn-container">
-            <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/grammar_info}">Start Test</a></button>
+            <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/grammar_info}">Continue</a></button>
         </div>
     </div>
-
 </body>
 </html>

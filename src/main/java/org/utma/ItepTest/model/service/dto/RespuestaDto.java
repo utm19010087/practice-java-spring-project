@@ -8,8 +8,8 @@ import org.utma.ItepTest.model.entity.Respuesta;
  * Esta clase se utiliza para transferir información entre la capa de controlador y la capa de servicio relacionada con las respuestas.
  * </p>
  *
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/22
  */
 public class RespuestaDto
 {

@@ -7,6 +7,7 @@
 </head>
 <body>
     <div th:replace="component/layout :: navbar_fragment"></div>
+    <!--
     <main th:fragment="grammar_message_fragment" id="main">
         <section id="rightSide">
             <article id="rightHeader">
@@ -14,11 +15,8 @@
             </article>
             <article class="questionBox">
                 <h1 class="question">In the Grammar section, there are two questions types:</h1>
-                <h1 class="question">In questions 1-13, you must click on the circle nest to the word or phrase that correctly completes the sentence.</h1>
-                <h1 class="question">In questions 14-25, you must click on the circle nest to the incorrect word or phrase in the sentence.</h1>
-                <h1 class="question">You will be shown one example before each of the two different question types. You have 10
-                    minutes to review the examples and answer 25 questions. During the 10 minutes, you may use the "Back" button to return
-                    to any question and, if you wish, change your answer.
+                <h1 class="question">In questions 1-10, you must click on the circle nest to the word or phrase that correctly completes the sentence.</h1>
+                <h1 class="question">In questions 11-20, you must click on the circle nest to the incorrect word or phrase in the sentence.</h1>
                 </h1>
             </article>
 
@@ -28,5 +26,22 @@
 
         </section>
     </main>
+    -->
+
+    <div class="container-info-box">
+        <div class="titulo">
+            <h3 class="tres">Grammar Instruction</h3><hr>
+        </div>
+        <div class="container-info">
+            <div>
+                <div class="container-info-item"> - In this section, there are two questions types:</div>
+                <div class="container-info-item"> - In questions 1-10, you must click on the circle nest to the word or phrase that correctly completes the sentence.</div>
+                <div class="container-info-item"> - In questions 11-20, you must click on the circle nest to the incorrect word or phrase in the sentence.</div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/test}">Start Test</a></button>
+        </div>
+    </div>
 </body>
 </html>

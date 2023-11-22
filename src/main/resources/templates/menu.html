@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login_module.css}"/>
+    <link rel="stylesheet" th:href="@{/css/layout_module.css}">
     <link rel="stylesheet" th:href="@{/css/message_module.css}">
-    <link rel="stylesheet" th:href="@{/css/menu_module.css}">
+
+    <title th:text="'Login'"></title>
 </head>
+
 <body>
-    <div th:replace="component/layout :: navbar_fragment"></div>
-    <div class="container">
-        <div class="box-container">
-            <div>
-                <h3>Results Review</h3>
-                <hr>
-                <div class="item-container" th:text="'Your ID: ' + ${usuario.matricula} + '.'"></div>
-                <div class="item-container" th:text="'Last Score: ' + ${usuario.ultimaPuntuacion}"></div>
-                <div class="item-container" th:text="'Last Applicacion Date: ' + ${usuario.ultimaAplicacion}"></div>
-                <div class="btn-container">
-                    <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/resultados}">Go To</a></button>
+<div th:replace="component/layout :: navbar_fragment"></div>
+<header th:replace="component/layout :: header_fragment"></header>
+
+<section class="forms-section">
+    <h1 class="section-title"></h1>
+    <div class="forms">
+        <div class="form-wrapper is-active">
+            <button type="button" class="switcher switcher-login">
+                Results Review
+                <span class="underline"></span>
+            </button>
+            <form class="form form-login" th:action="@{/usuario/login}" method="post" th:object="${usuario}">
+                <div>
+                    <h3>Results Review</h3>
+                    <hr>
+                    <div class="item-container" th:text="'Your ID: ' + ${usuario.matricula} + '.'"></div>
+                    <div class="item-container" th:text="'Last Score: ' + ${usuario.ultimaPuntuacion}"></div>
+                    <div class="item-container" th:text="'Last Applicacion Date: ' + ${usuario.ultimaAplicacion}">
+                    </div>
+                    <div class="btn-container">
+
+                    </div>
                 </div>
-            </div>
+                <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/resultados}">Go
+                    To</a></button>
+                <!-- <button type="submit" class="btn-login">Login</button> -->
+            </form>
         </div>
-        <div class="box-container">
-            <h3>Test</h3>
-            <hr>
-            <div class="item-container" th:text="'Considere antes de iniciar el test:'"></div>
-            <div class="item-container" th:text="'El test consta de 5 secciones.'"></div>
-            <div class="item-container" th:text="'No podra detener la prueba.'"></div>
-            <div class="btn-container">
-                <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/info}">Start Test</a></button>
-            </div>
+        <div class="form-wrapper">
+            <button type="button" class="switcher switcher-signup">
+                Test
+                <span class="underline"></span>
+            </button>
+            <form class="form form-signup" th:action="@{/usuario/registro}" method="post" th:object="${usuario}">
+                <div>
+                    <h3>Test</h3>
+                    <hr>
+                    <div class="item-container" th:text="'Considere antes de iniciar el test:'"></div>
+                    <div class="item-container" th:text="'El test consta de 5 secciones.'"></div>
+                    <div class="item-container" th:text="'No podra detener la prueba.'"></div>
+                    <div class="btn-container">
+
+                    </div>
+                    <button class="btn-finalize"><a class="link-finalize" th:href="@{/itep/info}">Start
+                        Test</a></button>
+                    <!-- <button type="submit" class="btn-signup">Continue</button> -->
+                </div>
+            </form>
         </div>
     </div>
+</section>
 </body>
+<script type="text/javascript" th:src="@{/js/login_module.js}"></script>
+<!-- <script src="/menu/index.js"></script> -->
+
 </html>
