@@ -8,7 +8,18 @@ import org.utma.ItepTest.model.entity.Usuario;
 import org.utma.ItepTest.model.service.IUsuarioService;
 
 import java.util.List;
-
+/**
+ * Implementación de la interfaz IUsuarioService que proporciona operaciones de servicio relacionadas con la entidad Usuario.
+ *
+ * <p>
+ * Esta clase utiliza la anotación `@Service` de Spring para indicar que es un componente de servicio.
+ * Proporciona métodos transaccionales para realizar operaciones CRUD en la entidad Usuario, así como operaciones específicas
+ * relacionadas con la autenticación de usuarios.
+ * </p>
+ *
+ * @author [Nombre del autor]
+ * @version [Versión del software o clase]
+ */
 @Service
 public class UsuarioServiceImpl implements IUsuarioService
 {

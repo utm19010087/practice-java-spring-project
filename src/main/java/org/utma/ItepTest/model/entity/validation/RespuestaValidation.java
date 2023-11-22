@@ -29,12 +29,31 @@ import org.utma.ItepTest.model.entity.Respuesta;
 public class RespuestaValidation implements Validator
 {
 
-    
+    /**
+     * Determina si el validador puede manejar la validación para el tipo de clase especificado.
+     *
+     * @param clazz El tipo de clase a ser validado.
+     * @return true si el validador puede manejar la validación para la clase, false de lo contrario.
+     */
     @Override
     public boolean supports(Class<?> clazz) {
         return Respuesta.class.isAssignableFrom(clazz);
     }
 
+
+    /**
+     * Realiza la validación del objeto target, que debe ser una instancia de la clase Respuesta.
+     *
+     * <p>
+     * Verifica que los campos "texto", "isCorrect" e "idPreguntas" no estén vacíos o compuestos solo por espacios en blanco.
+     * Además, verifica que "isCorrect" no sea nulo. Si se encuentran errores de validación, se registran en el objeto Errors proporcionado
+     * con los códigos "NotEmpty.preguntaRespuesta.texto", "NotNull.preguntaRespuesta.isCorrect" y "NotNull.preguntaRespuesta.idPreguntas"
+     * respectivamente.
+     * </p>
+     *
+     * @param target El objeto a ser validado.
+     * @param errors Contiene los errores de validación encontrados.
+     */
     @Override
     public void validate(Object target, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"texto","NotEmpty.preguntaRespuesta.texto");
