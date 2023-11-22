@@ -28,9 +28,11 @@ public class Usuario implements Serializable {
     @Column(name = "create_at")
     private Date createAt;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "ultima_aplicacion")
     private Date ultimaAplicacion;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "ultima_puntuacion")
     private int ultimaPuntuacion;
 
