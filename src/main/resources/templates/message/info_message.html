@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/message_module.css}">
 </head>
 <body>
-    <!--Main Info Message-->
+    <div th:replace="component/layout :: navbar_fragment"></div>
     <main  th:fragment="main_message_fragment" id="main">
         <section id="leftSide">
             <article id="leftHeader">
@@ -19,10 +19,11 @@
                 will encounter content and questions targeted at varying levels of proficiency. </article>
             </h4>
             <article id="navegation">
-                <a th:href="@{/itep/test}"><button id="nextButton">Continue</button></a>
+                <a th:href="@{/itep/grammar_info}"><button id="nextButton">Continue</button></a>
             </article>
         </section>
     </main>
+
 
 </body>
 </html>

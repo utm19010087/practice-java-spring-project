@@ -61,8 +61,12 @@ public class ItepController
     @GetMapping("/info")
     public String info(Model model)
     {
-        model.addAttribute("main_message",true);
-        return "info_messages";
+        return "message/info_message";
+    }
+    @GetMapping("/grammar_info")
+    public String grammarInfo(Model model)
+    {
+        return "message/grammar_message";
     }
 
     /**
