@@ -14,9 +14,10 @@ import org.utma.ItepTest.model.service.dto.RespuestaDto;
  * @see IService
  * @see Respuesta
  * @see RespuestaDto
- * @author [Nombre del autor]
- * @version [Versión del software o clase]
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/05/21
  */
 public interface IRespuestaService extends IService<Respuesta>
 {
+    // No es necesario agregar métodos adicionales aquí, ya que la interfaz padre IService proporciona los métodos estándar CRUD.
 }

@@ -36,14 +36,25 @@ public class UsuarioController
 
     @Autowired
     private LoginValidator loginValidator;
-
+    /**
+     * Inicializa el WebDataBinder para personalizar la conversión de propiedades.
+     *
+     * @param binder El WebDataBinder a inicializar.
+     */
     @InitBinder
     public void initBinder(WebDataBinder binder)
     {
         binder.registerCustomEditor(String.class,"matricula", valuePropertyEditor);
         binder.registerCustomEditor(String.class,"email", valuePropertyEditor);
     }
-
+    /**
+     * Maneja las solicitudes GET para la página de inicio de sesión.
+     * Si el usuario ya está autenticado, redirige al menú principal.
+     *
+     * @param model   El modelo para la vista.
+     * @param session La sesión HTTP.
+     * @return La vista de inicio de sesión o la redirección al menú principal.
+     */
     @GetMapping("/login")
     public String login(Model model, HttpSession session)
     {
@@ -54,7 +65,16 @@ public class UsuarioController
         }
         return "redirect:/usuario/menu";
     }
-
+    /**
+     * Maneja las solicitudes POST para el proceso de inicio de sesión.
+     * Autentica al usuario y redirige al menú principal si la autenticación es exitosa.
+     *
+     * @param usuarioParam   Los datos del usuario para el inicio de sesión.
+     * @param model          El modelo para la vista.
+     * @param session        La sesión HTTP.
+     * @param flash          Atributos para mensajes flash.
+     * @return La redirección al menú principal o a la página de inicio de sesión en caso de error.
+     */
     @PostMapping("/login")
     public String loginPost(Usuario usuarioParam, Model model, HttpSession session, RedirectAttributes flash)
     {
@@ -71,7 +91,14 @@ public class UsuarioController
         }
         return "redirect:/usuario/login";
     }
-
+    /**
+     * Maneja las solicitudes GET para la página del menú principal.
+     * Si el usuario no está autenticado, redirige a la página de inicio de sesión.
+     *
+     * @param model   El modelo para la vista.
+     * @param session La sesión HTTP.
+     * @return La vista del menú principal o la redirección a la página de inicio de sesión.
+     */
     @GetMapping("/menu")
     public String menu(Model model, HttpSession session)
     {
@@ -82,7 +109,13 @@ public class UsuarioController
         }
         return "menu";
     }
-
+    /**
+     * Maneja las solicitudes GET para cerrar sesión.
+     * Invalida la sesión si el usuario está autenticado.
+     *
+     * @param session La sesión HTTP.
+     * @return La redirección a la página de inicio de sesión.
+     */
     @GetMapping("/logout")
     public String logout(HttpSession session)
     {
@@ -92,7 +125,17 @@ public class UsuarioController
         }
         return "redirect:/usuario/login";
     }
-
+    /**
+     * Maneja las solicitudes POST para el proceso de registro de usuarios.
+     * Registra un nuevo usuario si los datos son válidos.
+     *
+     * @param usuario       El usuario a registrar.
+     * @param result        El resultado del enlace.
+     * @param model         El modelo para la vista.
+     * @param status        El estado de la sesión.
+     * @param flash         Atributos para mensajes flash.
+     * @return La redirección a la página de inicio de sesión.
+     */
     @PostMapping("/registro")
     public String registrar(@Valid Usuario usuario, BindingResult result,
                             Model model, SessionStatus status, RedirectAttributes flash)
