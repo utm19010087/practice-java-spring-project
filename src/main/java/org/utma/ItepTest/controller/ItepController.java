@@ -21,22 +21,43 @@ import org.utma.ItepTest.model.service.dto.RespuestaDto;
 
 import java.util.Date;
 
+/**
+ * ItepController funge como el controlador de la aplicacion referente a su apartado ITEP.
+ * Esta clase provee servicios para la aplicacion de tipo GET y POST asi como redireccionamientos web y validaciones
+ * de entidades.
+ * @author Francisco Javier Gonzalez Huerta / Fabrica de Software - UTMA
+ * @version 0.1, 2023/11/21
+ */
 @Controller
 @RequestMapping("/itep")
 public class ItepController
 {
+    /**
+     * Inyecta las dependencias CRUD de PreguntaServiceImpl por medio de la interfaz de la que implementa.
+     */
     @Autowired
     private IPreguntaService preguntaService;
-
+    /**
+     * Inyecta las dependencias CRUD de ResultadoServiceImpl por medio de la interfaz de la que implementa.
+     */
     @Autowired
     private IResultadoService resultadoService;
-
+    /**
+     * Inyecta las dependencias CRUD de UsuarioServiceImpl por medio de la interfaz de la que implementa.
+     */
     @Autowired
     private IUsuarioService usuarioService;
-
+    /**
+     * Inyecta el componente Login validator que nos permitira desacoplar la validacion del HttpSesion del controlador.
+     */
     @Autowired
     private LoginValidator loginValidator;
-
+    /**
+     * info proporciona un mapeo de tipo get a la uri /info.
+     * Carga la plantilla HTML de info_messages.html con un model attribute main_message que sera recibido por Thymeleaf.
+     * @param model Parametro Model.
+     * @return Retorna una plantilla html.
+     */
     @GetMapping("/info")
     public String info(Model model)
     {
@@ -44,6 +65,13 @@ public class ItepController
         return "info_messages";
     }
 
+    /**
+     * test proporciona un mapeo de tipo get a la uri /test.
+     * Carga la plantilla itep_test.html con varios model attribute, usuarioId como un attribute de HttpSession
+     * @param model Parametro Model.
+     * @param session Parametro HttpSession.
+     * @return Retorna una plantilla html.
+     */
     @GetMapping("/test")
     public String test(Model model, HttpSession session)
     {
@@ -55,7 +83,15 @@ public class ItepController
         model.addAttribute("preguntas",preguntaService.findAll());
         return "test/itep_test";
     }
-
+    /**
+     * testPost proporciona un mapeo de tipo post a la uri /test.
+     * testPost recibe un ModelAttribute de tipo RespuestaDto desde el formulario login y lo procesa para guardar los datos
+     * en la base de datos por medio de resultadoService asi como los datos del usuario referentes al test.
+     * @param respuestaDto Parametro ModelAttribute.
+     * @param model Parametro Model.
+     * @param session Parametro HttpSession.
+     * @return
+     */
     @PostMapping("/test")
     public String testPost(@ModelAttribute RespuestaDto respuestaDto, Model model, HttpSession session)
     {
@@ -64,11 +100,9 @@ public class ItepController
         {
             return "redirect:/usuario/login";
         }
-
         respuestaDto.setUsuarioId(usuarioId);
         resultadoService.deleteResultadoByUsuarioId(usuarioId);
         resultadoService.saveRespuestaWithUsuarioWithPreguntaWithRespuestaWithUsuario(respuestaDto);
-
         Usuario usuario = new Usuario();
         usuario = usuarioService.findById(usuarioId);
         usuario.setUltimaAplicacion(new Date());
@@ -78,6 +112,15 @@ public class ItepController
         return "redirect:/itep/resultados";
     }
 
+    /**
+     * resultados proporciona un mapeo de tipo get a la uri /resultados.
+     * recibe in entero por medio de un RequestParam que sera vital para manipular el Pageable de la plantilla results,
+     * a su vez manipula los model attributes para enviarlos a la plantilla html.
+     * @param page Parametro int.
+     * @param session Parametro HttpSession.
+     * @param model Parametro Model.
+     * @return Retorna una uri.
+     */
     @GetMapping("/resultados")
     public String resultados(@RequestParam(name = "page", defaultValue = "0") int page ,HttpSession session,Model model)
     {
