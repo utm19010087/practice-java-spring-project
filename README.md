@@ -1,9 +1,8 @@
 
-Proyecto de Práctica en Java con Spring Framework
+Java Practice Project with Spring Framework
 
-Descripción:
-Este repositorio alberga un proyecto básico de práctica en Java implementado con el framework Spring. 
+Description:
+This repository hosts a basic Java practice project implemented with the Spring framework.
 
-Contribuciones
-
-¡Las contribuciones son bienvenidas! Siéntete libre de abrir problemas (issues) o enviar solicitudes de extracción (pull requests).
+Contributions:
+Contributions are welcome! Feel free to open issues or send pull requests.
